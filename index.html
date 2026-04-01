@@ -20,7 +20,7 @@
             display: flex; justify-content: center; align-items: center;
         }
 
-        /* 1. KATMAN: DÖNEN PEMBE ÇİZGİ */
+        /* 1. KATMAN: DÖNEN PEMBE ÇİZGİ (TEMEL) */
         .neon-wrapper::before {
             content: '';
             position: absolute;
@@ -57,6 +57,7 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Parıltıların (Sparkling) yanıp sönme efekti */
         @keyframes sparkleBlink {
             0% { opacity: 0.7; transform: scale(0.9) rotate(0deg); }
             100% { opacity: 1; transform: scale(1.2) rotate(15deg); }
