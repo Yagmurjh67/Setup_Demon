@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demon Setup | Super Sparkle Ponpon</title>
+    <title>Demon Setup | Ultra Sparkle Ponpon</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         body { 
@@ -20,33 +20,36 @@
             display: flex; justify-content: center; align-items: center;
         }
 
-        /* DÖNEN KATMAN: ÇİZGİ + UÇTAKİ KABARIK PONPON + PARILTILAR */
+        /* 1. KATMAN: DÖNEN PEMBE ÇİZGİ */
         .neon-wrapper::before {
             content: '';
             position: absolute;
             width: 150%; height: 150%;
-            /* Tek bir gradyanda her şeyi birleştirdim: Çizgi, Ponpon ve Sparkles */
-            background: 
-                /* 1. Uçtaki Minik Beyaz Sparkles (Yıldızlar) */
-                radial-gradient(circle at 50% 5%, #fff 2px, transparent 4px),
-                radial-gradient(circle at 53% 7%, #fff 1.5px, transparent 3px),
-                radial-gradient(circle at 47% 3%, #fff 1.5px, transparent 3px),
-                /* 2. Uçtaki Kabarık Pembe Ponpon (Cheerleader Style) */
-                radial-gradient(circle at 50% 5%, #FF1493 0%, #FF69B4 15px, rgba(255, 105, 180, 0.4) 30px, transparent 50px),
-                /* 3. Arkadan Gelen İnce Neon Çizgi */
-                conic-gradient(from 0deg, transparent 70%, rgba(255, 105, 180, 0.3) 85%, #FF69B4 95%, transparent 100%);
-            
+            background: conic-gradient(from 0deg, transparent 80%, #FF69B4 95%, transparent 100%);
             animation: rotateAll 3s linear infinite;
         }
 
-        /* Işığı daha canlı yapmak için ikinci bir parlama katmanı */
+        /* 2. KATMAN: GERÇEK PONPON VE SPARKLE (Garantili Yöntem) */
         .neon-wrapper::after {
-            content: '';
+            /* Buraya gerçek parıltı karakteri koyuyoruz, böylece tarayıcı 'yok' sayamaz */
+            content: '✨'; 
             position: absolute;
-            width: 150%; height: 150%;
-            background: radial-gradient(circle at 50% 5%, rgba(255, 255, 255, 0.8) 0%, transparent 10px);
+            width: 100%; height: 100%;
+            color: #fff;
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+            /* Ponponun konumu (Üst orta) */
+            padding-top: 15px; 
+            align-items: flex-start;
+            /* Ponponun o kabarık pembe patlaması */
+            text-shadow: 
+                0 0 10px #fff, 
+                0 0 25px #FF1493, 
+                0 0 45px #FF69B4,
+                0 0 60px #FF69B4;
             animation: rotateAll 3s linear infinite, sparkleBlink 0.3s infinite alternate;
-            z-index: 0;
+            z-index: 1;
         }
 
         @keyframes rotateAll {
@@ -55,13 +58,13 @@
         }
 
         @keyframes sparkleBlink {
-            0% { opacity: 0.5; }
-            100% { opacity: 1; }
+            0% { opacity: 0.7; transform: scale(0.9) rotate(0deg); }
+            100% { opacity: 1; transform: scale(1.2) rotate(15deg); }
         }
 
         .container { 
             position: relative; width: 100%; background: #0d0d0d; 
-            padding: 35px; border-radius: 39px; z-index: 1; 
+            padding: 35px; border-radius: 39px; z-index: 2; 
             box-shadow: inset 0 0 20px rgba(0,0,0,1);
         }
         
